@@ -1,5 +1,6 @@
 const inputBox = document.getElementById('inputBox')
 const listContainer = document.getElementById('listContainer')
+const inputBtn = document.querySelector('#inputBtn');
 
 function addTask() {
     if (inputBox === '') {
@@ -36,5 +37,12 @@ function saveData() {
 function showTask() {
     listContainer.innerHTML = localStorage.getItem('data')
 }
+
+inputBox.addEventListener('keypress', function(e){
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        inputBtn.click();
+    }
+})
 
 showTask()
